@@ -16,14 +16,17 @@
     button { padding:12px; margin-top:20px; background:#ff6f00; color:white; border:none; border-radius:25px; font-size:1.1em; cursor:pointer; box-shadow:0 4px 8px rgba(0,0,0,0.3); }
     button:hover { transform:translateY(-2px); }
     .image-preview { width:100%; max-height:260px; object-fit:contain; border:2px dashed #ff6f00; margin-top:10px; display:none; }
-    #outputCard { display:none; border:3px solid #ff8f00; padding:20px; border-radius:15px; margin-top:25px; background:#fff8f0; }
+    #outputCard { display:none; border:3px solid #ff8f00; padding:20px; border-radius:15px; margin-top:25px; background:#fff8f0; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;}
     #outputCard img { max-width:100%; margin-top:15px; border-radius:10px; }
     .countdown { margin-top:15px; font-size:1.1em; color:#e65100; }
     .music-control { margin-top:20px; }
     canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
 
     #diwaliImage {
-            max-width: 100%;
+            max-width: 50%;
             height: auto;
             border-radius: 10px;
             margin-bottom: 25px;
@@ -61,7 +64,7 @@
       <div id="cardMessage"></div>
       <video id="diwaliImage" src="rakhi.mp4" autoplay controls ></video>
 
-      <button><a href="#">Create Your Template</a></button>
+      <button><a href="https://rakhi4.netlify.app/">Create Your Template</a></button>
     </div>
     <div class="links">
       <p>🔗 यह लिंक शेयर करें:</p>
@@ -115,7 +118,7 @@
     url.searchParams.set('sender', n);
     url.searchParams.set('msg', encodeURIComponent(m));
     document.getElementById('shareLink').value = url.toString();
-    document.getElementById('outputCard').style.display = 'block';
+    document.getElementById('outputCard').style.display = 'flex';
   }
 
   function copyLink(){ navigator.clipboard.writeText(document.getElementById('shareLink').value).then(()=>alert('लिंक कॉपी हो गया!')); }
@@ -138,7 +141,7 @@
   if (sender && msg) {
     const f = tag ? `(${tag})` : '';
     document.getElementById('cardMessage').innerHTML = `<p style="font-size:1.2em;color:#d84315;"><strong>${decodeURIComponent(msg)}</strong></p><p style="float: right;">— ${sender}</p>`;
-    document.getElementById('outputCard').style.display = 'block';
+    document.getElementById('outputCard').style.display = 'flex';
 
     // Hide form and extras
     document.querySelector('.input-group').style.display = 'none';
