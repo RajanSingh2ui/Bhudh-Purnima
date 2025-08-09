@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="monetag" content="010b6b69ba6ec0b76aa9692a1787150d">
   <title>रक्षाबंधन की शुभकामनाएँ</title>
   <link href="https://fonts.googleapis.com/css2?family=Charm:wght@700&family=Hind+Siliguri:wght@400;700&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="raksha-bandhan.avif">
@@ -24,7 +25,7 @@
     .countdown { margin-top:15px; font-size:1.1em; color:#e65100; }
     .music-control { margin-top:20px; }
     canvas { position:fixed; top:0; left:0; width:100%; height:100%; z-index:-1; pointer-events:none; }
-
+      a{ text-decoration: none;}
     #diwaliImage {
             max-width: 50%;
             height: auto;
@@ -39,7 +40,7 @@
   <canvas id="fireworksCanvas"></canvas>
 
   <div class="container">
-    <h1>शुभ रक्षाबंधन!</h1>
+    <h1 style="text-align: center;">शुभ रक्षाबंधन!</h1>
     <div class="typing" id="typingEffect"></div>
 
     <div class="input-group">
@@ -62,9 +63,9 @@
 
     <div id="outputCard">
       <div id="cardMessage"></div>
-      <video id="diwaliImage" src="rakhi.mp4" autoplay controls ></video>
+      <video id="diwaliImage" src="rakhi.mp4" autoplay controls></video>
 
-      <button><a href="https://rakhi4.netlify.app/">Create Your Template</a></button>
+      <button><a href="https://rakhi4.netlify.app/">Create Your Message</a></button>
     </div>
     <div class="links">
       <p>🔗 यह लिंक शेयर करें:</p>
@@ -113,7 +114,7 @@
   function generateCard(){
     const n=document.getElementById('senderName').value|| 'आपको और आपके परिवार को रक्षाबंधन  की हार्दिक शुभकामनाएँ!';
     const m=document.getElementById('customMessage').value|| 'रक्षाबंधन की हार्दिक शुभकामनाएँ!';
-    document.getElementById('cardMessage').innerHTML = `<p style="font-size:1.2em;color:#d84315;"><strong>${m}</strong></p><p>— ${n}</p>`;
+    document.getElementById('cardMessage').innerHTML = `<p style="font-size:1.2em;color:#d84315;"><strong>${m}</strong></p><p style="float: right;">— ${n}</p>`;
     const url = new URL(window.location);
     url.searchParams.set('sender', n);
     url.searchParams.set('msg', encodeURIComponent(m));
@@ -127,9 +128,6 @@
     let link = document.getElementById('shareLink').value;
     window.open(`https://api.whatsapp.com/send?text=${encodeURIComponent("रक्षाबंधन की शुभकामनाएँ! " + link)}`, '_blank');
   }
-
-  function toggleMusic(){ const m=document.getElementById('bgMusic'); m.muted=!m.muted; }
-
 
   // Show card directly if link has sender/message params
 (function showCardIfLinkOpened(){
